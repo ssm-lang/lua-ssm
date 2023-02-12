@@ -4,7 +4,7 @@ source = {
    url = "https://github.com/ssm-lang/lua-ssm",
 }
 description = {
-   summary = "Sparse synchronous model in Lua",
+   summary = "Sparse Synchronous Model in Lua",
    homepage = "https://github.com/ssm-lang/lua-ssm",
    license = "MIT",
    maintainer = "John Hui <j-hui@cs.columbia.edu>",
