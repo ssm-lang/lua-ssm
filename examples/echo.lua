@@ -1,6 +1,3 @@
--- stupid hack due to inconsistent package.path settings between distributions
-package.path = './?/init.lua;./?.lua;' .. package.path
-
 local ssm = require("ssm") { backend = "luv" }
 
 function ssm.pause(d)
@@ -9,18 +6,15 @@ function ssm.pause(d)
   ssm.wait(t)
 end
 
-function ssm.main()
+ssm.start(function()
   local stdin, stdout = ssm.io.get_stdin(), ssm.io.get_stdout()
-  while true do
-    ssm.wait(stdin)
+  while ssm.wait(stdin) do
     if not stdin.data then
-      stdout.data = nil
-      return
+      break
     end
     local str = stdin.data
     ssm.pause(250)
-    stdout.data = tostring(ssm.as_msec(ssm.now())) .. ": " .. str
+    stdout.data = str
   end
-end
-
-print(ssm.start(ssm.main))
+  stdout.data = nil
+end)

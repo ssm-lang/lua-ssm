@@ -1,7 +1,4 @@
--- stupid hack due to inconsistent package.path settings between distributions
-package.path = './?/init.lua;./?.lua;' .. package.path
-
-local ssm = require("ssm") { backend = "luv" }
+local ssm = require("ssm")
 
 function ssm.foo(a)
   ssm.wait(a)                                     -- Block on update to a

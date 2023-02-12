@@ -1,4 +1,3 @@
-package.path = './?/init.lua;./?.lua;' .. package.path
 local ssm = require("ssm") { backend = "luv" }
 
 function ssm.sig_gen(ctl, out)
